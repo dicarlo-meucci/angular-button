@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'button';
+  btnClickOverride()
+  {
+    alert("Click overridden");
+  }
 }

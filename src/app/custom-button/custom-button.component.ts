@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-custom-button',
@@ -7,9 +7,11 @@ import { Component, Input } from '@angular/core';
 })
 
 export class CustomButtonComponent {
-  @Input() onClickDisable: boolean = false
+  @Input() onClickDisable: boolean = false;
+  @Output() clickEvent: EventEmitter<any> = new EventEmitter();
 
   onClick(evt: MouseEvent) {
+    this.clickEvent.emit();
     if (this.onClickDisable)
     {
       (evt.target as HTMLElement).setAttribute('disabled', 'true')
